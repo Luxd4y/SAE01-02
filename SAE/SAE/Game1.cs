@@ -20,12 +20,13 @@ namespace SAE
         private TiledMapRenderer _tiledMapRenderer;
         private TiledMapTileLayer mapLayer;
 
+        /*
         //Joueur
         private Vector2 _positionPlayer;
         private AnimatedSprite _player;
         Player playerbase = new Player();
 
-        //
+        */
 
         public Game1()
         {
@@ -36,10 +37,12 @@ namespace SAE
        
         protected override void Initialize()
         {
+            /*
             //Joueur
 
             _positionPlayer = new Vector2(0, 0);
             //
+            */
 
             // TODO: Add your initialization logic here
             _graphics.PreferredBackBufferWidth = 1920;
@@ -67,6 +70,7 @@ namespace SAE
             float deltaSeconds = (float)gameTime.ElapsedGameTime.TotalSeconds; // DeltaTime
             float walkSpeed = deltaSeconds; // Vitesse de déplacement du sprite
 
+            /*
             //player bouge
             if (keyboardState.IsKeyDown(Keys.Up))
                 _positionPlayer.Y += 1;
@@ -76,6 +80,7 @@ namespace SAE
                 _positionPlayer.X -= 1;
             else if (Keyboard.GetState().IsKeyDown(Keys.Right))
                 _positionPlayer.X += 1;
+            */
 
 
                 // TODO: Add your update logic here
