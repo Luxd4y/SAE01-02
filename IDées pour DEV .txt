@@ -1,0 +1,27 @@
+Points clés :
+
+Si tu meurs, tu respawn avec un délai (de plus en plus long) OU tu deviens un zombie LOL.
+
+- Zombies :
+	Différents types : 
+		Zombie de base :  il est con, il va tout droit , il veut le coeur
+		Zombie d'attaque : il veut ton corps
+		Zombie de soutien : il heal les autres zombies.
+		Nid de zombies :  avance pas vite, mais fait spawn des zombies d'autres types.
+	Vagues successives
+	Boss avec un mécanique particulière (imène elle veut un zombie tank)
+- Joueur :
+	Améliorations
+- IA :
+	zombies
+éventuellement une ia qui aide le joueur (des pnj)
+
+- Shop :
+	on améliore le joueur, on achète des pièges, on pose des murs etc
+
+SUR LA MAP : 
+	on  met une cascade avec un trésor
+
+SI ON EST CHAUD :
+
+	Armes différentes
