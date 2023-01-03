@@ -23,7 +23,7 @@ namespace SAE
         //Joueur
         private Vector2 _positionPlayer;
         private AnimatedSprite _player;
-        Player playerbase = new Player();
+       //Player playerbase = new Player();
 
         //
 
