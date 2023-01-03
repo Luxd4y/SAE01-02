@@ -7,6 +7,8 @@ Si tu meurs, tu respawn avec un délai (de plus en plus long) OU tu deviens un z
 		Zombie de base :  il est con, il va tout droit , il veut le coeur
 		Zombie d'attaque : il veut ton corps
 		Zombie de soutien : il heal les autres zombies.
+		Le gros : + de vie mais lent
+		Le rapide : - de vie mais plus rapide
 		Nid de zombies :  avance pas vite, mais fait spawn des zombies d'autres types.
 	Vagues successives
 	Boss avec un mécanique particulière (imène elle veut un zombie tank)
@@ -16,12 +18,12 @@ Si tu meurs, tu respawn avec un délai (de plus en plus long) OU tu deviens un z
 	zombies
 éventuellement une ia qui aide le joueur (des pnj)
 
-- Shop :
+- SHOP :
 	on améliore le joueur, on achète des pièges, on pose des murs etc
 
 SUR LA MAP : 
-	on  met une cascade avec un trésor
+	on  met une cascade avec un trésor (panneau) mais si casse le panneau trésor
 
 SI ON EST CHAUD :
-
 	Armes différentes
+	Konami code
