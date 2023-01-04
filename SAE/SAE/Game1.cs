@@ -15,10 +15,14 @@ namespace SAE
     public class Game1 : Game
     {
         private GraphicsDeviceManager _graphics;
-        private SpriteBatch _spriteBatch;
-        private TiledMap _tiledMap;
-        private TiledMapRenderer _tiledMapRenderer;
-        private TiledMapTileLayer mapLayer;
+        private readonly ScreenManager _screenManager;
+        public SpriteBatch _spriteBatch { get; set; }
+        
+        
+
+        StartScreen startscreen;
+        GameScreen gamescreen;
+        EndScreen endscreen;
 
         /*
         //Joueur
@@ -33,6 +37,9 @@ namespace SAE
             _graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
             IsMouseVisible = true;
+
+            _screenManager = new ScreenManager();
+            Components.Add(_screenManager);
         }
        
         protected override void Initialize()
@@ -47,7 +54,10 @@ namespace SAE
             // TODO: Add your initialization logic here
             _graphics.PreferredBackBufferWidth = 1920;
             _graphics.PreferredBackBufferHeight = 1080;
+            _graphics.IsFullScreen = true;
             _graphics.ApplyChanges();
+
+            
 
             base.Initialize();
         }
@@ -55,8 +65,11 @@ namespace SAE
         protected override void LoadContent()
         {
             _spriteBatch = new SpriteBatch(GraphicsDevice);
-            _tiledMap = Content.Load<TiledMap>("map");
-            _tiledMapRenderer = new TiledMapRenderer(GraphicsDevice, _tiledMap);
+            
+
+            startscreen = new StartScreen(this); 
+            gamescreen = new GameScreen(this); 
+            endscreen = new EndScreen(this); 
 
             // TODO: use this.Content to load your game content here
         }
@@ -66,34 +79,31 @@ namespace SAE
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
 
+            // TODO: Add your update logic here
             KeyboardState keyboardState = Keyboard.GetState();
-            float deltaSeconds = (float)gameTime.ElapsedGameTime.TotalSeconds; // DeltaTime
-            float walkSpeed = deltaSeconds; // Vitesse de déplacement du sprite
+            if (keyboardState.IsKeyDown(Keys.Left))
+            {
+                _screenManager.LoadScreen(startscreen, new FadeTransition(GraphicsDevice,
+                Color.White));
+            }
+            else if (keyboardState.IsKeyDown(Keys.Right))
+            {
+                _screenManager.LoadScreen(endscreen, new FadeTransition(GraphicsDevice,
+                Color.Black));
+            }
+            else
+            {
 
-            /*
-            //player bouge
-            if (keyboardState.IsKeyDown(Keys.Up))
-                _positionPlayer.Y += 1;
-            else if (keyboardState.IsKeyDown(Keys.Down))
-                _positionPlayer.Y -= 1;
-            else if (keyboardState.IsKeyDown(Keys.Left))
-                _positionPlayer.X -= 1;
-            else if (Keyboard.GetState().IsKeyDown(Keys.Right))
-                _positionPlayer.X += 1;
-            */
+            }
 
-
-                // TODO: Add your update logic here
-                base.Update(gameTime);
+            base.Update(gameTime);
         }
 
         protected override void Draw(GameTime gameTime)
         {
-            GraphicsDevice.Clear(Color.CornflowerBlue);
+            
 
             // TODO: Add your drawing code here
-            _tiledMapRenderer.Draw();
-
             base.Draw(gameTime);
         }
     }
