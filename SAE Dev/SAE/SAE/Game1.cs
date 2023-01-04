@@ -67,12 +67,11 @@ namespace SAE
             gamescreen = new GameScreen(this); 
             endscreen = new EndScreen(this); 
 
-            _tiledMap = Content.Load<TiledMap>("map");
-            _tiledMapRenderer = new TiledMapRenderer(GraphicsDevice, _tiledMap);
+           
 
             //Joueur
-            SpriteSheet spriteSheet = Content.Load<SpriteSheet>("playerSide.sf", new JsonContentLoader());
-            _player = new AnimatedSprite(spriteSheet);
+            //SpriteSheet spriteSheet = Content.Load<SpriteSheet>("playerSide.sf", new JsonContentLoader());
+            //_player = new AnimatedSprite(spriteSheet);
 
 
             // TODO: use this.Content to load your game content here
@@ -83,8 +82,7 @@ namespace SAE
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
 
-            _tiledMapRenderer.Update(gameTime);
-
+            
             float deltaSeconds = (float)gameTime.ElapsedGameTime.TotalSeconds; // DeltaTime
             float walkSpeed = deltaSeconds * playerDeBase.Vitesse; 
 
@@ -132,8 +130,8 @@ namespace SAE
             }
 
              // TODO: Add your update logic here
-             _player.Play(playerSide);
-             _player.Update(deltaSeconds);
+             //_player.Play(playerSide);
+             //_player.Update(deltaSeconds);
              base.Update(gameTime);
         }
 
