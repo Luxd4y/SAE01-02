@@ -20,13 +20,13 @@ namespace SAE
         private TiledMapRenderer _tiledMapRenderer;
         private TiledMapTileLayer mapLayer;
 
-        /*
+        
         //Joueur
         private Vector2 _positionPlayer;
         private AnimatedSprite _player;
-       //Player playerbase = new Player();
+        Player playerDeBase = new Player("Player1", 100, 10, 0);
 
-        */
+       
 
         public Game1()
         {
@@ -37,18 +37,16 @@ namespace SAE
        
         protected override void Initialize()
         {
-            /*
-            //Joueur
-
-            _positionPlayer = new Vector2(0, 0);
-            //
-            */
-
+            
             // TODO: Add your initialization logic here
             _graphics.PreferredBackBufferWidth = 1920;
             _graphics.PreferredBackBufferHeight = 1080;
             _graphics.ApplyChanges();
 
+
+            //Joueur
+            _positionPlayer = new Vector2(_graphics.PreferredBackBufferWidth / 2 , _graphics.PreferredBackBufferHeight / 2);
+            
             base.Initialize();
         }
 
@@ -58,6 +56,11 @@ namespace SAE
             _tiledMap = Content.Load<TiledMap>("map");
             _tiledMapRenderer = new TiledMapRenderer(GraphicsDevice, _tiledMap);
 
+            //Joueur
+            SpriteSheet spriteSheet = Content.Load<SpriteSheet>("playerSide.sf", new JsonContentLoader());
+            _player = new AnimatedSprite(spriteSheet);
+
+
             // TODO: use this.Content to load your game content here
         }
 
@@ -66,25 +69,45 @@ namespace SAE
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
 
-            KeyboardState keyboardState = Keyboard.GetState();
+            _tiledMapRenderer.Update(gameTime);
+
             float deltaSeconds = (float)gameTime.ElapsedGameTime.TotalSeconds; // DeltaTime
-            float walkSpeed = deltaSeconds; // Vitesse de déplacement du sprite
+            float walkSpeed = deltaSeconds * playerDeBase.Vitesse; 
 
-            /*
+            KeyboardState keyboardState = Keyboard.GetState();
+
+
             //player bouge
+            string playerSide = "idle";
             if (keyboardState.IsKeyDown(Keys.Up))
+            {
                 _positionPlayer.Y += 1;
+                playerSide = "walkNorth";
+            }
             else if (keyboardState.IsKeyDown(Keys.Down))
+            {
                 _positionPlayer.Y -= 1;
+                playerSide = "walkSouth";
+            }
             else if (keyboardState.IsKeyDown(Keys.Left))
+            {
                 _positionPlayer.X -= 1;
+                playerSide = "walkEast";
+
+            }
             else if (Keyboard.GetState().IsKeyDown(Keys.Right))
+            {
                 _positionPlayer.X += 1;
-            */
+                playerSide = "walkWest";
+            }
+           
 
 
-                // TODO: Add your update logic here
-                base.Update(gameTime);
+
+             // TODO: Add your update logic here
+             _player.Play(playerSide);
+             _player.Update(deltaSeconds);
+             base.Update(gameTime);
         }
 
         protected override void Draw(GameTime gameTime)
