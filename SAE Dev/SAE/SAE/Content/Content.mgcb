@@ -35,8 +35,3 @@
 /processorParam:TextureFormat=Color
 /build:pixil-frame-0.png
 
-#begin pixil-frame-0.tsx
-/importer:TiledMapTilesetImporter
-/processor:TiledMapTilesetProcessor
-/build:pixil-frame-0.tsx
-
