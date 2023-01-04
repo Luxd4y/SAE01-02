@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml const version="1.0" encoding="UTF-8"?>
 <tileset version="1.9" tiledversion="1.9.2" name="pixil-frame-0" tilewidth="32" tileheight="32" tilecount="9" columns="3">
  <image source="pixil-frame-0.png" width="101" height="101"/>
  <tile id="0" probability="0.11"/>
