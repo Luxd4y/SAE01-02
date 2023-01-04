@@ -24,7 +24,7 @@ namespace SAE
         GameScreen gamescreen;
         EndScreen endscreen;
 
-        /*
+        
         //Joueur
         private Vector2 _positionPlayer;
         private AnimatedSprite _player;
